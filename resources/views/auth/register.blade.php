@@ -20,8 +20,14 @@
 
             <!-- Name Field -->
             <div class="mb-4">
-                <label for="name" class="block text-gray-600 font-semibold">Name</label>
+                <label for="name" class="block text-gray-600 font-semibold">Full Name</label>
                 <input type="text" id="name" name="name" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+
+            <!-- Username Field -->
+            <div class="mb-4">
+                <label for="username" class="block text-gray-600 font-semibold">Username</label>
+                <input type="text" id="username" name="username" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
             </div>
 
             <!-- Email Field -->
