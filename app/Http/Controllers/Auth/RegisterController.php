@@ -10,17 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-    /**
-     * Show the registration form.
-     */
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
 
-    /**
-     * Handle registration request.
-     */
     public function register(Request $request)
     {
         $request->validate([
@@ -37,8 +31,15 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Generate API token
+        $token = $user->createToken('auth_token')->plainTextToken;
+
         Auth::login($user);
 
-        return redirect()->route('dashboard'); // Change to your dashboard route
+        // Store success message in session
+        return redirect()->route('dashboard')->with([
+            'success' => 'Registration successful! Welcome to Taskify.',
+            'token' => $token
+        ]);
     }
 }
